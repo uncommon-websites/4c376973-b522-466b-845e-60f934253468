@@ -1,0 +1,62 @@
+<script lang="ts">
+  interface AgendaItemType {
+    time: string;
+    title?: string;
+    subtitle?: string;
+    content?: string[];
+  }
+
+  export let date = "April 28";
+  export let items: AgendaItemType[] = [
+    { time: "All day", title: "Pre-conference training (add-on)", subtitle: "Partner Summit (for Stripe partners only)" }
+  ];
+  export let tags: string[] = [];
+</script>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 py-12 border-t border-gray-200">
+  <!-- Left Header -->
+  <div class="lg:col-span-5">
+    <h2 class="text-[clamp(2.5rem,5vw,4rem)] leading-none font-medium mb-8 text-[#110F28]">Agenda at<br>a glance</h2>
+    <button class="bg-[#110F28] text-white text-xs font-medium px-6 py-3 rounded-full hover:bg-opacity-90 transition-opacity">
+      Register
+    </button>
+  </div>
+
+  <!-- Right Content -->
+  <div class="lg:col-span-7">
+    <div class="flex gap-2 mb-8">
+      {#each tags as tag}
+        <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-gray-100 text-[10px] font-medium text-gray-600 uppercase tracking-wide">
+          <span class="w-2 h-2 rounded-sm bg-[#635bff]"></span>
+          {tag}
+        </span>
+      {/each}
+    </div>
+
+    <h3 class="text-3xl font-medium text-[#110F28] mb-8">{date}</h3>
+
+    <div class="space-y-0">
+      {#each items as item}
+        <div class="grid grid-cols-1 md:grid-cols-12 py-6 border-t border-gray-100">
+          <div class="md:col-span-3">
+            <p class="text-sm text-gray-400 font-medium">{item.time}</p>
+          </div>
+          <div class="md:col-span-9">
+             {#if Array.isArray(item.content)}
+                <ul class="space-y-1">
+                    {#each item.content as line}
+                        <li class="text-sm text-[#110F28]">{line}</li>
+                    {/each}
+                </ul>
+             {:else}
+                <p class="text-sm text-[#110F28] mb-1">{item.title}</p>
+                {#if item.subtitle}
+                    <p class="text-sm text-[#110F28]">{item.subtitle}</p>
+                {/if}
+             {/if}
+          </div>
+        </div>
+      {/each}
+    </div>
+  </div>
+</div>
