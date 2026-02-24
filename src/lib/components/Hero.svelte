@@ -1,6 +1,6 @@
 <section class="pt-32 pb-20 px-6 max-w-[1400px] mx-auto">
   <h1 class="text-[clamp(3rem,8vw,6.5rem)] leading-[0.95] tracking-tight font-medium max-w-4xl mb-12 text-[#110F28]">
-    The internet economy conference
+    Build the future of payments
   </h1>
 
   <div class="flex flex-col md:flex-row gap-8 md:gap-32 mb-32 text-sm font-medium text-gray-600">
